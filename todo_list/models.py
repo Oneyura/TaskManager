@@ -7,7 +7,7 @@ class Tag(models.Model):
 
 
 class Task(models.Model):
-    content = models.TextField()
+    content = models.CharField(max_length=300)
     date = models.DateTimeField(auto_now_add=True)
     deadline = models.DateTimeField(blank=True, null=True)
     status = models.BooleanField(default=False)
