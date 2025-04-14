@@ -1,15 +1,15 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse_lazy, reverse
+from django.shortcuts import get_object_or_404, redirect
+from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
-from task_manager.todo_list.models import Task, Tag
+from todo_list.models import Task, Tag
 
 
 class TaskListView(ListView):
     model = Task
     context_object_name = "index"
-    template_name =  "todo_list/index.html"
+    template_name = "todo_list/index.html"
 
 class TaskCreateView(CreateView):
     model = Task
