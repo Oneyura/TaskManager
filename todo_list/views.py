@@ -31,7 +31,7 @@ class TaskDeleteView(DeleteView):
 
 
 class TaskCompleteView(View):
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=kwargs["pk"])
         task.status = True
         task.save()
@@ -39,7 +39,7 @@ class TaskCompleteView(View):
 
 
 class TaskUndoView(View):
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=kwargs["pk"])
         task.status = False
         task.save()

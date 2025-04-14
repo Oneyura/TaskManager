@@ -18,6 +18,12 @@
               {% else %}
                 <span class="text-danger ms-2">Not done</span>
               {% endif %}
+
+              {% if task.status %}
+                <a href="{% url 'todo-list:task-undo' pk=task.id %}" class="btn btn-danger btn-sm">Undo</a>
+              {% else %}
+                <a href="{% url 'todo-list:task-complete' pk=task.id %}" class="btn btn-success btn-sm">Complete</a>
+              {% endif %}
             </h4>
             <p>
               Created at: {{ task.date }}<br>
